@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
-import { ServicesSection } from './components/ServicesSection';
-import { ChamberLocationSection } from './components/ChamberLocationSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { FaqSection } from './components/FaqSection';
+import { CityEditorialSection } from './components/CityEditorialSection';
+import { LatestBlogsSection } from './components/LatestBlogsSection';
 import { Footer } from './components/Footer';
 import { FloatingActionBar } from './components/FloatingActionBar';
 import { ConsultationBookingModal } from './components/ConsultationBookingModal';
 
 export default function App() {
+  const [currentCity, setCurrentCity] = useState<string>('Patna');
   const [selectedLocality, setSelectedLocality] = useState<string>('indirapuram');
   const [bookingModalOpen, setBookingModalOpen] = useState<boolean>(false);
   const [bookingServiceId, setBookingServiceId] = useState<string | undefined>();
@@ -29,63 +28,55 @@ export default function App() {
     setSelectedLocality(localityId);
   };
 
+  const handleSelectCity = (city: string) => {
+    setCurrentCity(city);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-amber-50/40 text-slate-800 antialiased">
-      {/* Top Header & Navigation */}
+    <div className="min-h-screen flex flex-col bg-white text-stone-900 antialiased font-sans">
+      {/* 1. Authentic Header with Logo, Phone Numbers, Login Pills & Nav */}
       <Header
         onOpenBookingModal={handleOpenBookingModal}
         selectedLocality={selectedLocality}
         onSelectLocality={handleSelectLocality}
       />
 
-      {/* Main Streamlined City Page Content */}
+      {/* Main City Page Workspace */}
       <main className="flex-grow">
-        {/* 1. Hero Section (Headline, Profile, Quick Booking Form & WhatsApp/Call) */}
+        {/* 2. Cosmic Space Banner with Stats (16+ Yrs, 7k+ Students, 40k+ Calls) */}
         <HeroSection
+          cityName={currentCity}
           onOpenBookingModal={handleOpenBookingModal}
+          selectedLocality={selectedLocality}
+          onSelectCity={handleSelectCity}
+        />
+
+        {/* 3. 2-Column Enhanced Editorial + Sticky Lead Form & Solutions Section */}
+        <CityEditorialSection
+          cityName={currentCity}
           selectedLocality={selectedLocality}
           onSelectLocality={handleSelectLocality}
-        />
-
-        {/* 2. Core Vedic Services (Transparent Pricing & Direct Booking) */}
-        <ServicesSection
           onOpenBookingModal={handleOpenBookingModal}
-          selectedLocality={selectedLocality}
         />
 
-        {/* 3. Physical Chambers & Ghaziabad Localities Served */}
-        <ChamberLocationSection
-          onOpenBookingModal={handleOpenBookingModal}
-          selectedLocality={selectedLocality}
-          onSelectLocality={handleSelectLocality}
-        />
-
-        {/* 4. Verified Client Reviews from Ghaziabad Localities */}
-        <TestimonialsSection
-          onOpenBookingModal={handleOpenBookingModal}
-          selectedLocality={selectedLocality}
-        />
-
-        {/* 5. Key FAQs */}
-        <FaqSection
-          onOpenBookingModal={() => handleOpenBookingModal()}
-          selectedLocality={selectedLocality}
-        />
+        {/* 4. Latest Blogs Carousel / Cards (Rudrabhishek Puja & Astrology Remedies) */}
+        <LatestBlogsSection />
       </main>
 
-      {/* 6. Clean Footer */}
+      {/* 5. 4-Column Footer with Full Services & Nationwide City Directory */}
       <Footer
-        onSelectLocality={handleSelectLocality}
+        onSelectCity={handleSelectCity}
         onOpenBookingModal={handleOpenBookingModal}
       />
 
-      {/* Sticky Bottom Action Bar for Easy Mobile Conversions */}
+      {/* Sticky Bottom Action Bar for Easy Mobile Access */}
       <FloatingActionBar
         onOpenBookingModal={() => handleOpenBookingModal()}
         selectedLocality={selectedLocality}
       />
 
-      {/* Consultation Booking Modal */}
+      {/* Interactive Consultation Booking Modal */}
       <ConsultationBookingModal
         isOpen={bookingModalOpen}
         onClose={handleCloseBookingModal}

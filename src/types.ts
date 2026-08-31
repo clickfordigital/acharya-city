@@ -72,3 +72,16 @@ export interface FaqItem {
   answer: string;
   category: 'booking' | 'remedies' | 'accuracy' | 'ghaziabad_chamber';
 }
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  category: string;
+  categoryType: 'FESTIVAL' | 'BLOGS' | 'VEDIC';
+  excerpt: string;
+  content: string;
+  author: string;
+  date: string;
+  readTime: string;
+  imageTheme: string;
+}

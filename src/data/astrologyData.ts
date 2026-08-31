@@ -1,37 +1,98 @@
-import { AstrologerService, CityLocality, Testimonial, RashiInfo, FaqItem } from '../types';
+import { AstrologerService, CityLocality, Testimonial, RashiInfo, FaqItem, BlogPost } from '../types';
 
 export const ASTROLOGER_PROFILE = {
-  name: 'Acharya Ganesh',
-  fullName: 'Acharya Ganesh',
+  name: 'Astrologer Hanish Bagga',
+  brandName: 'Acharya Ganesh',
+  fullName: 'Acharya Hanish Bagga',
   tagline: 'जो सही राह दिखाए',
-  designation: 'Vedic Jyotish Acharya & Vastu Expert',
-  qualification: 'Gold Medalist Vedic Astrologer & Vastu Acharya',
-  experienceYears: 25,
-  consultationsDone: '25,000+',
+  designation: 'Celebrity Vedic Astrologer, Vastu Expert & Educator',
+  qualification: 'Vedic Jyotish Acharya & Vastu Shastra Guru',
+  experienceYears: 16,
+  studentsTrained: '7k+',
+  consultationsDone: '40k+',
   accuracyRate: '98.6%',
   phone: '+91 73000-04325',
   phone2: '+91 73000-04326',
   whatsappNumber: '917300004325',
-  email: 'contact@acharyaganesh.com',
+  email: 'info@acharyaganesh.com',
   rating: 4.9,
   reviewCount: 1850,
+  officeAddress: 'Floor, 887, Lower Ground, B-1, Niti Khand I, Indirapuram, Ghaziabad, Uttar Pradesh 201014',
   mainChambers: [
     {
-      name: 'Indirapuram Main Chamber',
-      address: 'Suite 204, 2nd Floor, Aditya Mega City, Vaibhav Khand, Indirapuram, Ghaziabad, UP - 201014',
-      nearbyMetro: 'Vaishali Metro Station (8 mins) & Electronic City Metro (10 mins)',
-      timings: 'Monday - Saturday: 10:00 AM – 7:30 PM (Sunday by Appointment)',
+      name: 'Indirapuram Head Office',
+      address: 'Floor, 887, Lower Ground, B-1, Niti Khand I, Indirapuram, Ghaziabad, UP - 201014',
+      nearbyMetro: 'Vaishali Metro (8 mins) & Electronic City Metro (10 mins)',
+      timings: 'Monday - Saturday: 10:00 AM – 7:30 PM (Prior Appointment)',
       phone: '+91 73000-04325',
     },
     {
       name: 'Raj Nagar Consultation Office',
       address: 'Shop 14, Ground Floor, RDC Commercial Complex, Raj Nagar, Ghaziabad, UP - 201002',
-      nearbyMetro: 'Shaheed Sthal (New Bus Adda) Metro & Ghaziabad RRTS Station',
+      nearbyMetro: 'Shaheed Sthal Metro & Ghaziabad RRTS Station',
       timings: 'Tuesday, Thursday & Saturday: 3:00 PM – 8:30 PM',
       phone: '+91 73000-04326',
     }
   ]
 };
+
+export const MAJOR_CITIES_LIST = [
+  'Delhi', 'Noida', 'Ghaziabad', 'Gurgaon', 'Jaipur', 'Bangalore', 
+  'Mumbai', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata', 'Lucknow', 
+  'Faridabad', 'Kanpur', 'Agra', 'Indore', 'Chandigarh', 'Amritsar', 
+  'Patna', 'Ahmedabad'
+];
+
+export const SERVICE_CATEGORIES = [
+  { id: 'astro-vastu', name: 'Astro Vastu', icon: 'Compass', desc: 'Zero-demolition energetic alignment for home and workspace' },
+  { id: 'astrology-guidance', name: 'Astrology Guidance', icon: 'Sparkles', desc: 'Comprehensive Kundli horoscope mapping and transit analysis' },
+  { id: 'match-making', name: 'Match Making', icon: 'Heart', desc: 'Ashtakoot 36 Guna Milan & Navamsha compatibility check' },
+  { id: 'career-prediction', name: 'Career Prediction', icon: 'Briefcase', desc: 'Timing for promotions, job shifts, business launches & foreign yogas' },
+  { id: 'health-astrology', name: 'Health Astrology', icon: 'Activity', desc: 'Planetary health diagnostics and non-invasive restorative remedies' },
+  { id: 'love-astrology', name: 'Love Astrology', icon: 'Flame', desc: 'Resolving relationship friction, delays, and marital harmony' },
+  { id: 'muhurta-astrology', name: 'Muhurta Astrology', icon: 'Clock', desc: 'Auspicious timings for weddings, Griha Pravesh, and business inaugurations' },
+  { id: 'wealth-astrology', name: 'Wealth Astrology', icon: 'Coins', desc: 'Unlocking Dhana Yogas, debt clearance, and steady asset growth' },
+  { id: 'litigation-astrology', name: 'Litigation Astrology', icon: 'Shield', desc: 'Planetary strategies to triumph over disputes and legal battles' }
+];
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'rudrabhishek-puja-importance',
+    title: 'Importance of Rudrabhishek Puja in Hinduism',
+    category: 'FESTIVAL',
+    categoryType: 'FESTIVAL',
+    excerpt: 'IN THE VAST OCEAN OF SANATANA DHARMA, RITUALS SERVE AS SACRED BRIDGES CONNECTING HUMAN CONSCIOUSNESS WITH COSMIC VIBRATIONS...',
+    content: 'Rudrabhishek Puja is one of the most revered and spiritually potent Vedic rituals dedicated to Lord Shiva, the embodiment of cosmic stillness and transformation. Chanting the sacred Sri Rudram while offering holy baths of milk, honey, sugarcane juice, and sacred waters dissolves past karmic blockages, pacifies malefic planetary dashas (especially Saturn and Rahu), and brings profound mental serenity, health rejuvenation, and domestic harmony to the devotee’s household.',
+    author: 'Hanish Bagga',
+    date: 'August 2026',
+    readTime: '4 min read',
+    imageTheme: 'from-amber-900 via-stone-900 to-amber-950'
+  },
+  {
+    id: 'rudrabhishek-puja-procedure-step-by-step',
+    title: 'Rudrabhishek Puja Procedure Step by Step',
+    category: 'FESTIVAL',
+    categoryType: 'FESTIVAL',
+    excerpt: 'RUDRABHISHEK PUJA IS ONE OF THE MOST SACRED AND POWERFUL VEDIC RITUALS DEDICATED TO LORD SHIVA, THE DESTRUCTIVE FORCE OF NEGATIVITY...',
+    content: 'Performing Rudrabhishek systematically begins with Sankalpa, invoking Lord Ganesha for obstacle removal, followed by Kalash Sthapana and Navagraha invocation. The core segment involves pouring sacred Panchamrit over the Shivlingam in continuous stream accompanied by the rhythmic chanting of the 11 Anuvakas of Namakam and Chamakam. Concluding with Aarti, Bilva Patra offering, and distributing prasad seals divine protection around the entire family.',
+    author: 'Hanish Bagga',
+    date: 'August 2026',
+    readTime: '6 min read',
+    imageTheme: 'from-stone-950 via-amber-950 to-stone-900'
+  },
+  {
+    id: 'astrology-remedies-physical-mental-health',
+    title: 'Astrology Remedies for Better Physical and Mental Health',
+    category: 'BLOGS',
+    categoryType: 'BLOGS',
+    excerpt: 'IN OUR MODERN, FAST-PACED WORLD, ACHIEVING TOTAL WELLNESS REQUIRES A HOLISTIC APPROACH THAT CONNECTS THE PLANETS WITH CHAKRAS...',
+    content: 'Planetary alignments heavily influence our bio-rhythms and psychological equilibrium. The Moon governs anxiety and sleep patterns; Mars governs blood pressure and vitality; Mercury governs nervous system resilience. Through practical Vedic remedial measures—such as specific Moon water remedies, Gayatri Japa, balanced copper hydration, and gemstone harmonization—one can restore psychosomatic balance and eliminate chronic lethargy.',
+    author: 'Hanish Bagga',
+    date: 'August 2026',
+    readTime: '5 min read',
+    imageTheme: 'from-amber-900 via-stone-900 to-amber-950'
+  }
+];
 
 export const GHAZIABAD_LOCALITIES: CityLocality[] = [
   {
@@ -473,38 +534,32 @@ export const FAQS: FaqItem[] = [
   {
     id: '1',
     category: 'ghaziabad_chamber',
-    question: 'Where is Acharya Devendra Shastri’s chamber located in Ghaziabad?',
-    answer: 'Acharya ji has two convenient consultation centers in Ghaziabad: 1) Main Chamber at Aditya Mega City, Vaibhav Khand, Indirapuram (easily accessible from Vaishali, Vasundhara, and Noida via CISF road); 2) Branch Chamber at RDC, Raj Nagar (near Shaheed Sthal Metro Station & Hindon Elevated Road). In-person visits require prior appointment booking.'
+    question: 'What services does the best astrologer in Ghaziabad & NCR offer?',
+    answer: 'Astrologer Hanish Bagga and Acharya Ganesh offer comprehensive, scientifically-grounded Vedic consultations including: 1) Astro Vastu (Zero-demolition residential and commercial energetic balance), 2) Complete Astrology & Kundli Guidance, 3) 36-Guna Match Making & Navamsha Compatibility, 4) Career & Business Predictions, 5) Vastu Shastra Consultation, and 6) Personalized Horoscope & Gemstone Recommendations.'
   },
   {
     id: '2',
-    category: 'booking',
-    question: 'How do I book a consultation and what is the consultation fee?',
-    answer: 'You can book directly through the booking form on this page or message us on WhatsApp (+91 98712 34567). Our consultation fees start from ₹650 for focused queries up to ₹1100 for a comprehensive full Kundli lifetime reading. We offer both In-Person Chamber sessions in Ghaziabad and High-Definition Video/Phone calls for clients worldwide.'
+    category: 'accuracy',
+    question: 'What qualities define the best astrologer?',
+    answer: 'The best astrologer is defined by: • Deep Vedic Expertise & Lineage • Proven Analytical Accuracy (98.6%) • Clear, Empathetic Communication Skills • Non-Judgemental & Non-Fear-Based Attitude • Continuous Research in Astro-Science • High Professionalism & Ethics • Authentic Client Feedback & Proven Transformations.'
   },
   {
     id: '3',
     category: 'accuracy',
-    question: 'What details are required for accurate Kundli and Horoscope reading?',
-    answer: 'For a precise Vedic horoscope chart, we require: 1) Exact Date of Birth, 2) Exact Time of Birth (with AM/PM), and 3) Place of Birth (City/District). If you do not have the exact birth time, Acharya ji uses Prashna Kundli (Horary Astrology) and Palmistry/Face Reading principles during chamber visits to answer your questions with high accuracy.'
+    question: 'Who is a genuine astrologer in Ghaziabad & NCR?',
+    answer: 'Astrologer Hanish Bagga (Acharya Ganesh) is one of the most trusted and genuine astrologers. He is not motivated solely by financial gain, but is genuinely committed to helping individuals navigate life’s complex transitions by providing clear, logical, and practical remedies that deliver measurable results.'
   },
   {
     id: '4',
-    category: 'remedies',
-    question: 'Are the astrological remedies expensive or superstitious?',
-    answer: 'No. Acharya Devendra Shastri strictly practices pure, classical Parashari Vedic astrology. He does NOT promote fear-based rituals or expensive totke. 95% of his remedies consist of simple Vedic mantras, righteous karmic donations (daan), daily lifestyle adjustments, and authentic certified gemstones only when functionally supportive for your horoscope.'
+    category: 'booking',
+    question: 'What is the general cost associated with consulting the best astrologer?',
+    answer: 'We believe that astrology should empower people in improving their lives, not create financial stress. Our pricing is kept structured and transparent—ranging from focused 1-on-1 query calls up to comprehensive lifetime Astro Vastu & Kundli blueprints. With our online and chamber consultation options, clients across India find peaceful clarity and resolution.'
   },
   {
     id: '5',
-    category: 'ghaziabad_chamber',
-    question: 'Do you offer on-site Vastu visits for apartments and villas in Ghaziabad?',
-    answer: 'Yes! Acharya ji regularly visits residential high-rises and commercial properties across Indirapuram, Vaishali, Raj Nagar Extension, Crossings Republik, and Vasundhara. He specializes in Zero-Demolition Vastu, harmonizing directional energies using elemental corrections, mirrors, colors, and copper energy pyramids without breaking any walls.'
-  },
-  {
-    id: '6',
-    category: 'booking',
-    question: 'Is my personal information and consultation confidential?',
-    answer: '100% Confidential. All birth details, relationship queries, and personal discussions are kept strictly private between you and Acharya ji. We never share or sell any client data.'
+    category: 'accuracy',
+    question: 'Can astrology by date of birth predict the future accurately?',
+    answer: 'Yes. Vedic astrology deciphers the energetic map of celestial bodies at the exact moment of your birth. By analyzing planetary placements, divisional charts (D9, D10), Mahadasha cycles, and current transits (Gochar), an experienced astrologer can predict key life themes, milestone timing, and potential obstacles with high precision.'
   }
 ];
 
