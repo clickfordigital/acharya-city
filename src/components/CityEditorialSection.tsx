@@ -23,6 +23,7 @@ import {
   SERVICE_CATEGORIES, 
   MAJOR_CITIES_LIST 
 } from '../data/astrologyData';
+import { ZodiacWheel } from './ZodiacWheel';
 
 interface CityEditorialSectionProps {
   cityName: string;
@@ -392,41 +393,33 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
         </div>
 
         {/* ================= FULL-WIDTH GOLDEN CTA BANNER ================= */}
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 border border-amber-300 shadow-md p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          {/* Background Zodiac Wheel Artwork */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none flex items-center justify-center">
-            <svg viewBox="0 0 200 200" className="w-64 h-64 text-amber-900 animate-spin-slow">
-              <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
-              <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" strokeWidth="1" />
-              <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" strokeWidth="1" />
-              <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" strokeWidth="1" />
-              <line x1="36" y1="164" x2="164" y2="36" stroke="currentColor" strokeWidth="1" />
-            </svg>
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 border border-amber-300 shadow-md p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Background Rolling Zodiac Wheel Artwork - Positioned cleanly in right corner background without overlap */}
+          <div className="absolute -right-10 sm:right-6 md:right-10 -top-8 sm:top-1/2 sm:-translate-y-1/2 opacity-30 sm:opacity-40 pointer-events-none flex items-center justify-center">
+            <ZodiacWheel className="w-56 h-56 sm:w-68 sm:h-68 lg:w-76 lg:h-76 text-amber-950" />
           </div>
 
           {/* Left Text in Banner */}
-          <div className="relative z-10 space-y-1 text-center sm:text-left max-w-2xl">
+          <div className="relative z-10 space-y-2 text-center md:text-left max-w-xl">
             <span className="font-serif-heading italic text-lg sm:text-xl text-stone-900 font-semibold block">
               Design Your Own Future
             </span>
-            <h3 className="font-serif-heading font-extrabold text-xl sm:text-2xl text-stone-950 leading-tight">
+            <h3 className="font-serif-heading font-extrabold text-xl sm:text-2xl lg:text-3xl text-stone-950 leading-tight">
               Book your Consultation and Start the Journey Today!
             </h3>
             <p className="text-xs sm:text-sm text-stone-700 font-normal">
               Direct astrological guidance for Kundali Milan, Career Growth, Astro Vastu & Planetary Remedies.
             </p>
-          </div>
-
-          {/* Right Button in Banner */}
-          <div className="relative z-10 shrink-0">
-            <button
-              onClick={() => onOpenBookingModal(undefined, selectedLocality)}
-              className="px-8 py-3.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-bold text-sm sm:text-base shadow-lg transition-all transform hover:scale-105 cursor-pointer flex items-center gap-2"
-            >
-              <span>Book Now</span>
-              <ArrowRight className="w-4 h-4 text-amber-400" />
-            </button>
+            {/* Book Now Button directly below text on medium/desktop screens as well */}
+            <div className="pt-2">
+              <button
+                onClick={() => onOpenBookingModal(undefined, selectedLocality)}
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-stone-950 hover:bg-stone-800 text-white font-bold text-sm shadow-xl transition-all transform hover:scale-105 cursor-pointer border border-amber-400/30"
+              >
+                <span>Book Now</span>
+                <ArrowRight className="w-4 h-4 text-amber-400" />
+              </button>
+            </div>
           </div>
         </div>
 
