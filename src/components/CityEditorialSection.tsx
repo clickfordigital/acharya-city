@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle2, 
-  ChevronDown, 
-  ChevronUp, 
   Phone, 
   MessageCircle, 
   Sparkles, 
@@ -23,7 +21,6 @@ import {
   ASTROLOGER_PROFILE, 
   GHAZIABAD_LOCALITIES, 
   SERVICE_CATEGORIES, 
-  FAQS,
   MAJOR_CITIES_LIST 
 } from '../data/astrologyData';
 
@@ -50,9 +47,6 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // FAQ Accordion State
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-
   // Interactive Topic Filter
   const [activeTopic, setActiveTopic] = useState<'all' | 'career' | 'marriage' | 'vastu' | 'health' | 'wealth'>('all');
 
@@ -72,16 +66,13 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
     window.open(`https://wa.me/${ASTROLOGER_PROFILE.whatsappNumber}?text=${text}`, '_blank');
   };
 
-  const toggleFaq = (index: number) => {
-    setOpenFaqIndex(openFaqIndex === index ? null : index);
-  };
-
   return (
     <section className="py-8 sm:py-12 bg-white text-stone-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
-          {/* ================= LEFT MAIN EDITORIAL CONTENT (8 Cols) ================= */}
-          <div className="lg:col-span-8 space-y-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        {/* ================= 2-COLUMN SECTION: MAIN EDITORIAL + STICKY SIDEBAR ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-start">
+          {/* LEFT MAIN EDITORIAL CONTENT (8 Cols) */}
+          <div className="lg:col-span-8 space-y-8">
             {/* 1. Best Astrologer in City Section */}
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 text-amber-900 border border-amber-300 text-xs font-semibold">
@@ -99,7 +90,7 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
                   <strong className="text-amber-900 font-semibold cursor-pointer hover:underline" onClick={() => onOpenBookingModal()}>
                     Hanish Bagga
                   </strong>{' '}
-                  immediately if you want to utilize her practiced astrology, horoscope, and Best Astrologer in {cityName}. He is a specialist in this field and will make a point to track down the most fitting solution to your interests in general. You can exploit every last bit of his services at the least conceivable expense. He is famous for delivering accurate results. So why are you still thinking? Get Astrologer Hanish Bagga to settle your problems immediately.
+                  immediately if you want to utilize his practiced astrology, horoscope, and Vedic insights. He is a specialist in this field and will make a point to track down the most fitting solution to your interests in general. You can exploit every last bit of his services at the least conceivable expense. He is famous for delivering accurate results. So why are you still thinking? Get Astrologer Hanish Bagga to settle your problems immediately.
                 </p>
 
                 <p>
@@ -135,7 +126,7 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
                   <button
                     key={service.id}
                     onClick={() => onOpenBookingModal(service.id, selectedLocality)}
-                    className="p-2.5 rounded-xl bg-white border border-stone-200 hover:border-amber-500 hover:bg-amber-50/50 text-left transition-all group flex flex-col justify-between"
+                    className="p-2.5 rounded-xl bg-white border border-stone-200 hover:border-amber-500 hover:bg-amber-50/50 text-left transition-all group flex flex-col justify-between cursor-pointer"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-stone-900 group-hover:text-amber-900">{service.name}</span>
@@ -194,215 +185,12 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
                 </div>
               </div>
             </div>
-
-            {/* 4. Golden CTA Banner matching screenshot */}
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 border border-amber-300 shadow-md p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-              {/* Background Zodiac Wheel Artwork */}
-              <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none flex items-center justify-center">
-                <svg viewBox="0 0 200 200" className="w-64 h-64 text-amber-900 animate-spin-slow">
-                  <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
-                  <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" strokeWidth="1" />
-                  <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" strokeWidth="1" />
-                  <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" strokeWidth="1" />
-                  <line x1="36" y1="164" x2="164" y2="36" stroke="currentColor" strokeWidth="1" />
-                </svg>
-              </div>
-
-              {/* Left Text in Banner */}
-              <div className="relative z-10 space-y-1 text-center sm:text-left">
-                <span className="font-serif-heading italic text-lg sm:text-xl text-stone-900 font-semibold block">
-                  Design Your Own Future
-                </span>
-                <h3 className="font-serif-heading font-extrabold text-xl sm:text-2xl text-stone-950 leading-tight">
-                  Book your Consultation and Start the Journey Today!
-                </h3>
-              </div>
-
-              {/* Right Button in Banner */}
-              <div className="relative z-10 shrink-0">
-                <button
-                  onClick={() => onOpenBookingModal(undefined, selectedLocality)}
-                  className="px-8 py-3 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-bold text-sm sm:text-base shadow-lg transition-all transform hover:scale-105 cursor-pointer"
-                >
-                  Book Now
-                </button>
-              </div>
-            </div>
-
-            {/* 5. Best Astrology Solutions in City */}
-            <div className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold font-serif-heading text-stone-900 leading-snug">
-                Best Astrology Solutions in {cityName} with Hanish Bagga
-              </h2>
-
-              <div className="text-sm sm:text-base text-stone-700 leading-relaxed space-y-3 font-normal">
-                <p>
-                  Are you looking for a trustworthy astrologer in {cityName}? If yes, then you can reach out to Astrologer Hanish Bagga, who is known for being the Best Astrologer in {cityName}.
-                </p>
-
-                <p>
-                  Astrologer Hanish Bagga offers genuine solutions that work for all mysterious and Vastu-related issues. He is one of the most recognized astrologers and the best Astrology Consultant in {cityName}. He has broad knowledge in{' '}
-                  <button 
-                    onClick={() => onOpenBookingModal('astrology-guidance')}
-                    className="text-amber-800 font-bold underline hover:text-amber-900 cursor-pointer"
-                  >
-                    Astrology Services
-                  </button>
-                  . His ideas are easy and smooth for everybody in {cityName} to apply. He helped a lot of others with defeating their life obstacles.
-                </p>
-
-                <div className="p-3 bg-amber-50/70 border-l-4 border-amber-700 rounded-r-xl text-xs sm:text-sm text-stone-800">
-                  <strong>Read Also: </strong>
-                  <button 
-                    onClick={() => onOpenBookingModal('match-making')}
-                    className="text-amber-900 font-bold hover:underline cursor-pointer ml-1"
-                  >
-                    Best Astrologer for Match-Making in Northern & Central India
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* 6. FAQs Accordion Section Matching Screenshot */}
-            <div className="space-y-6 pt-4 border-t border-stone-200">
-              <div className="space-y-1">
-                <h2 className="text-2xl sm:text-3xl font-bold font-serif-heading text-stone-900">
-                  FAQs about Best Astrologer in {cityName}
-                </h2>
-                <p className="text-xs sm:text-sm text-stone-600">
-                  Everything you need to know before booking your astrological consultation
-                </p>
-              </div>
-
-              {/* Accordion Questions */}
-              <div className="space-y-3">
-                {/* Q1: Services Offered */}
-                <div className="rounded-xl border border-stone-200 overflow-hidden bg-white shadow-2xs">
-                  <button
-                    onClick={() => toggleFaq(0)}
-                    className="w-full p-4 text-left font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between gap-3 hover:bg-stone-50 transition-colors"
-                  >
-                    <span>Q1. What services does the best astrologer in {cityName} offer?</span>
-                    {openFaqIndex === 0 ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
-                  </button>
-                  {openFaqIndex === 0 && (
-                    <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 space-y-2.5 border-t border-stone-100 bg-stone-50/50">
-                      <p>
-                        <strong>Ans:</strong> Services offered by Astrologers may vary according to different astrologers. However, here are some common services that a reputable astrologer offers:
-                      </p>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 font-semibold text-amber-950">
-                        <div className="flex items-center gap-1.5">• Astro vastu</div>
-                        <div className="flex items-center gap-1.5">• Astrology</div>
-                        <div className="flex items-center gap-1.5">• Match Making</div>
-                        <div className="flex items-center gap-1.5">• Career Predictions</div>
-                        <div className="flex items-center gap-1.5">• Vastu</div>
-                        <div className="flex items-center gap-1.5">• Horoscope Predictions</div>
-                      </div>
-                      <p className="text-stone-600 text-xs pt-1">
-                        It's essential to choose an astrologer with a good reputation. Remember that the quality and effectiveness of astrological services can vary based on the astrologer's expertise.
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Q2: Qualities that define the best astrologer */}
-                <div className="rounded-xl border border-stone-200 overflow-hidden bg-white shadow-2xs">
-                  <button
-                    onClick={() => toggleFaq(1)}
-                    className="w-full p-4 text-left font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between gap-3 hover:bg-stone-50 transition-colors"
-                  >
-                    <span>Q2. What qualities define the best astrologer in {cityName}?</span>
-                    {openFaqIndex === 1 ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
-                  </button>
-                  {openFaqIndex === 1 && (
-                    <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 space-y-2.5 border-t border-stone-100 bg-stone-50/50">
-                      <p>
-                        <strong>Ans:</strong> The best qualities in astrologer can be defined by the combinations of few basic qualities such as:
-                      </p>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pl-2 font-medium text-stone-800">
-                        <li>• Expertise in Parashari & Jamini systems</li>
-                        <li>• Accuracy in Dasha timing</li>
-                        <li>• Communication Skills with empathy</li>
-                        <li>• Non-Judgemental Attitude</li>
-                        <li>• Continue Learning & Research</li>
-                        <li>• Professionalism & Ethical values</li>
-                        <li>• Clients Feedback & Trust</li>
-                      </ul>
-                      <p className="text-stone-600 text-xs pt-1">
-                        These qualities collectively contribute to the reputation and effectiveness of the best astrologer in {cityName}.
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Q3: Who is a genuine astrologer */}
-                <div className="rounded-xl border border-stone-200 overflow-hidden bg-white shadow-2xs">
-                  <button
-                    onClick={() => toggleFaq(2)}
-                    className="w-full p-4 text-left font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between gap-3 hover:bg-stone-50 transition-colors"
-                  >
-                    <span>Q3. Who is a genuine astrologer in {cityName}?</span>
-                    {openFaqIndex === 2 ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
-                  </button>
-                  {openFaqIndex === 2 && (
-                    <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 space-y-2 border-t border-stone-100 bg-stone-50/50">
-                      <p>
-                        <strong>Ans:</strong> <strong>Hanish Bagga</strong> is the genuine Astrologer in {cityName}. He is not motivated solely by financial gain but is genuinely committed to helping individuals by giving simple and easy remedies.
-                      </p>
-                      <p className="font-bold text-amber-900">
-                        One solution to all your problems – Hanish Bagga.
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Q4: Cost associated with consulting */}
-                <div className="rounded-xl border border-stone-200 overflow-hidden bg-white shadow-2xs">
-                  <button
-                    onClick={() => toggleFaq(3)}
-                    className="w-full p-4 text-left font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between gap-3 hover:bg-stone-50 transition-colors"
-                  >
-                    <span>Q4. What is the general cost associated with consulting the best astrologer?</span>
-                    {openFaqIndex === 3 ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
-                  </button>
-                  {openFaqIndex === 3 && (
-                    <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 space-y-2 border-t border-stone-100 bg-stone-50/50">
-                      <p>
-                        <strong>Ans:</strong> We believe that astrology should be utilized to help people in improving their lives not exclusively to earn more. Consequently, we have kept our pricing standards reachable and profoundly competitive. With our online or offline astrology services, many individuals have found peace and a way out of their hardships. Our rates are the best.
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Q5: Date of birth future prediction */}
-                <div className="rounded-xl border border-stone-200 overflow-hidden bg-white shadow-2xs">
-                  <button
-                    onClick={() => toggleFaq(4)}
-                    className="w-full p-4 text-left font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between gap-3 hover:bg-stone-50 transition-colors"
-                  >
-                    <span>Q5. Can astrology by date of birth predict the future?</span>
-                    {openFaqIndex === 4 ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
-                  </button>
-                  {openFaqIndex === 4 && (
-                    <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 space-y-2 border-t border-stone-100 bg-stone-50/50">
-                      <p>
-                        <strong>Ans:</strong> Yes, astrology can predict the future with the help of a date of birth. Astrologers analyze the places of celestial bodies at the time of a person's birth, alongside current planetary transits, to decipher likely themes, energies, and tendencies that might appear in their lives.
-                      </p>
-                      <p className="text-xs text-stone-500">
-                        For interesting astrology-related videos, subscribe to us on YouTube channel: <strong>Acharya Ganesh</strong>.
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* ================= RIGHT STICKY SIDEBAR (4 Cols) ================= */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* RIGHT STICKY SIDEBAR (4 Cols) */}
+          <div className="lg:col-span-4 space-y-6 sticky top-24 self-start">
             {/* 1. "Get In Touch" Lead Form Card */}
-            <div className="rounded-2xl border border-amber-200/80 bg-amber-50/40 p-5 sm:p-6 shadow-sm space-y-4">
+            <div className="rounded-2xl border border-amber-200/80 bg-amber-50/40 p-5 sm:p-6 shadow-xs space-y-4">
               <div className="border-b border-amber-200/60 pb-3">
                 <h3 className="text-lg font-bold font-serif-heading text-stone-900">
                   Get In Touch
@@ -499,7 +287,7 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
 
                   <button
                     type="submit"
-                    className="w-full py-2.5 rounded-lg bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer"
+                    className="w-full py-2.5 rounded-lg bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer"
                   >
                     Submit
                   </button>
@@ -600,6 +388,143 @@ export const CityEditorialSection: React.FC<CityEditorialSectionProps> = ({
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* ================= FULL-WIDTH GOLDEN CTA BANNER ================= */}
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 border border-amber-300 shadow-md p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Background Zodiac Wheel Artwork */}
+          <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none flex items-center justify-center">
+            <svg viewBox="0 0 200 200" className="w-64 h-64 text-amber-900 animate-spin-slow">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
+              <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" strokeWidth="1" />
+              <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" strokeWidth="1" />
+              <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" strokeWidth="1" />
+              <line x1="36" y1="164" x2="164" y2="36" stroke="currentColor" strokeWidth="1" />
+            </svg>
+          </div>
+
+          {/* Left Text in Banner */}
+          <div className="relative z-10 space-y-1 text-center sm:text-left max-w-2xl">
+            <span className="font-serif-heading italic text-lg sm:text-xl text-stone-900 font-semibold block">
+              Design Your Own Future
+            </span>
+            <h3 className="font-serif-heading font-extrabold text-xl sm:text-2xl text-stone-950 leading-tight">
+              Book your Consultation and Start the Journey Today!
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-700 font-normal">
+              Direct astrological guidance for Kundali Milan, Career Growth, Astro Vastu & Planetary Remedies.
+            </p>
+          </div>
+
+          {/* Right Button in Banner */}
+          <div className="relative z-10 shrink-0">
+            <button
+              onClick={() => onOpenBookingModal(undefined, selectedLocality)}
+              className="px-8 py-3.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-bold text-sm sm:text-base shadow-lg transition-all transform hover:scale-105 cursor-pointer flex items-center gap-2"
+            >
+              <span>Book Now</span>
+              <ArrowRight className="w-4 h-4 text-amber-400" />
+            </button>
+          </div>
+        </div>
+
+        {/* ================= FULL-WIDTH BEST ASTROLOGY SOLUTIONS SECTION ================= */}
+        <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-6 sm:p-8 space-y-6">
+          <div className="max-w-3xl space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold">
+              <Sparkles className="w-3 h-3 text-amber-700" />
+              <span>Authentic Vedic Guidance</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold font-serif-heading text-stone-900 leading-snug">
+              Best Astrology Solutions in {cityName} with Hanish Bagga
+            </h2>
+            <p className="text-sm sm:text-base text-stone-700 leading-relaxed font-normal">
+              Are you looking for a trustworthy astrologer in {cityName}? If yes, then you can reach out to Astrologer Hanish Bagga, recognized as one of the top Vedic & Astro Vastu Consultants in the region.
+            </p>
+          </div>
+
+          {/* 4 Feature Solution Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div 
+              onClick={() => onOpenBookingModal('match-making', selectedLocality)}
+              className="p-4 rounded-xl bg-white border border-stone-200 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800 group-hover:bg-amber-800 group-hover:text-white transition-colors">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm text-stone-900 group-hover:text-amber-900 font-serif-heading">
+                Match-Making & Kundli
+              </h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Ashtakoot Guna Milan, Manglik dosha analysis, and longevity compatibility for harmonious marriages.
+              </p>
+            </div>
+
+            <div 
+              onClick={() => onOpenBookingModal('career-prediction', selectedLocality)}
+              className="p-4 rounded-xl bg-white border border-stone-200 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800 group-hover:bg-amber-800 group-hover:text-white transition-colors">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm text-stone-900 group-hover:text-amber-900 font-serif-heading">
+                Naukri & Business Growth
+              </h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                10th house analysis, favorable dasha periods for job promotion, startup timing, and overseas career moves.
+              </p>
+            </div>
+
+            <div 
+              onClick={() => onOpenBookingModal('astro-vastu', selectedLocality)}
+              className="p-4 rounded-xl bg-white border border-stone-200 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800 group-hover:bg-amber-800 group-hover:text-white transition-colors">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm text-stone-900 group-hover:text-amber-900 font-serif-heading">
+                Residential Astro Vastu
+              </h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Zero demolition Vastu balancing North-East (Ishan), South-West (Nairutya), and Brahmasthan energies.
+              </p>
+            </div>
+
+            <div 
+              onClick={() => onOpenBookingModal('health-astrology', selectedLocality)}
+              className="p-4 rounded-xl bg-white border border-stone-200 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800 group-hover:bg-amber-800 group-hover:text-white transition-colors">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm text-stone-900 group-hover:text-amber-900 font-serif-heading">
+                Planetary Dosha Remedies
+              </h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Calming solutions for Kaal Sarp, Sade Sati, Pitra Dosha, and Rahu-Ketu transit periods.
+              </p>
+            </div>
+          </div>
+
+          {/* Reference pill */}
+          <div className="p-3 bg-amber-100/70 border-l-4 border-amber-700 rounded-r-xl text-xs sm:text-sm text-stone-800 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <strong>Read Also: </strong>
+              <button 
+                onClick={() => onOpenBookingModal('match-making')}
+                className="text-amber-950 font-bold hover:underline cursor-pointer ml-1"
+              >
+                Best Astrologer for Match-Making in Northern & Central India
+              </button>
+            </div>
+            <button
+              onClick={() => onOpenBookingModal(undefined, selectedLocality)}
+              className="text-xs font-bold text-amber-900 hover:text-amber-950 underline cursor-pointer"
+            >
+              Consult Astrologer Hanish Bagga →
+            </button>
           </div>
         </div>
       </div>

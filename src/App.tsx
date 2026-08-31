@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { CityEditorialSection } from './components/CityEditorialSection';
+import { FaqSection } from './components/FaqSection';
 import { LatestBlogsSection } from './components/LatestBlogsSection';
 import { Footer } from './components/Footer';
 import { FloatingActionBar } from './components/FloatingActionBar';
@@ -60,7 +61,14 @@ export default function App() {
           onOpenBookingModal={handleOpenBookingModal}
         />
 
-        {/* 4. Latest Blogs Carousel / Cards (Rudrabhishek Puja & Astrology Remedies) */}
+        {/* 4. Center-Aligned FAQs Section */}
+        <FaqSection
+          cityName={currentCity}
+          onOpenBookingModal={handleOpenBookingModal}
+          selectedLocality={selectedLocality}
+        />
+
+        {/* 5. Latest Blogs Carousel / Cards (Rudrabhishek Puja & Astrology Remedies) */}
         <LatestBlogsSection />
       </main>
 
