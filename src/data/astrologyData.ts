@@ -37,7 +37,7 @@ export const ASTROLOGER_PROFILE = {
 };
 
 export const MAJOR_CITIES_LIST = [
-  'Delhi', 'Noida', 'Ghaziabad', 'Gurgaon', 'Jaipur', 'Bangalore', 
+  'Varanasi', 'Delhi', 'Noida', 'Ghaziabad', 'Gurgaon', 'Jaipur', 'Bangalore', 
   'Mumbai', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata', 'Lucknow', 
   'Faridabad', 'Kanpur', 'Agra', 'Indore', 'Chandigarh', 'Amritsar', 
   'Patna', 'Ahmedabad'

@@ -9,7 +9,7 @@ import { FloatingActionBar } from './components/FloatingActionBar';
 import { ConsultationBookingModal } from './components/ConsultationBookingModal';
 
 export default function App() {
-  const [currentCity, setCurrentCity] = useState<string>('Patna');
+  const [currentCity, setCurrentCity] = useState<string>('Delhi');
   const [selectedLocality, setSelectedLocality] = useState<string>('indirapuram');
   const [bookingModalOpen, setBookingModalOpen] = useState<boolean>(false);
   const [bookingServiceId, setBookingServiceId] = useState<string | undefined>();
