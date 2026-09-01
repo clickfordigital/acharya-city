@@ -9,7 +9,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { ASTROLOGER_PROFILE } from '../data/astrologyData';
-import delhiHanumanBg from '../assets/images/delhi_hanuman_bg_1788253289174.jpg';
+import delhiHanumanBg from '../assets/images/delhi_hanuman_chest_open_1788253884539.jpg';
 import astrologerNamastePhoto from '../assets/images/hanish_bagga_namaste_1788253309383.jpg';
 
 interface HeroSectionProps {
@@ -48,19 +48,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section className="relative px-3 sm:px-6 lg:px-8 pt-2 sm:pt-4 pb-6 sm:pb-8">
       {/* Outer Banner Frame matching reference screenshot */}
-      <div className="max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-xl relative border border-amber-900/15 bg-[#fbf8f3] min-h-[500px] lg:min-h-[540px] flex flex-col justify-between">
+      <div className="max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-2xl relative border border-amber-900/20 bg-[#fcf9f4] min-h-[520px] lg:min-h-[560px] flex flex-col justify-between">
         
-        {/* Full Background Layer: Delhi landmark with Giant Lord Hanuman Statue & Metro Skyline */}
+        {/* Full Background Layer: Majestic Lord Hanuman Opening Chest at Karol Bagh Mandir */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
             src={delhiHanumanBg}
-            alt={`${displayCity} Hanuman Statue Skyline`}
-            className="w-full h-full object-cover object-[center_20%] lg:object-[50%_15%] opacity-90 scale-105"
+            alt={`Lord Hanuman ${displayCity} Landmark`}
+            className="w-full h-full object-cover object-[center_25%] sm:object-[center_20%] lg:object-[50%_15%] opacity-95 scale-100"
             referrerPolicy="no-referrer"
           />
-          {/* Subtle gradient wash: keeps the left text legible while leaving the center Hanuman statue vivid and majestic */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fbf8f3] via-[#fbf8f3]/90 sm:via-[#fbf8f3]/75 md:via-[#fbf8f3]/45 lg:via-[#fbf8f3]/20 via-35% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/5 via-transparent to-stone-900/10" />
+          {/* Spiritual divine glow & left side soft gradient for crisp text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fbf8f3] via-[#fbf8f3]/95 sm:via-[#fbf8f3]/85 md:via-[#fbf8f3]/50 lg:via-[#fbf8f3]/25 via-40% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-900/10 via-transparent to-stone-950/25" />
+          
+          {/* Subtle celestial golden glow around the central divine heart */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-amber-400/15 blur-3xl pointer-events-none" />
         </div>
 
         {/* Content Container (2-Column Grid: Left Headlines & Stats, Right Astrologer Card) */}
@@ -197,11 +200,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           </div>
 
-          {/* RIGHT COLUMN (Cols 8 to 12): Astrologer Portrait in Rich Frame */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
+          {/* RIGHT COLUMN (Cols 8 to 12): Astrologer Portrait in Rich Framed Box in the right corner */}
+          <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-center">
             
             {/* Framed Card Container with Double Gold/Amber Border */}
-            <div className="relative w-full max-w-sm sm:max-w-md rounded-3xl overflow-hidden shadow-2xl border-2 border-[#b06a28]/70 bg-stone-950/95 group">
+            <div className="relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border-2 border-[#b06a28]/80 bg-stone-950/95 group">
               
               {/* Location Pill in Top Right: 📍 DELHI, INDIA */}
               <div className="absolute top-3 right-3 z-20 bg-stone-950/85 backdrop-blur-xs text-[#f5c36a] border border-[#b06a28]/60 rounded-full px-3 py-1 text-[10px] sm:text-xs font-bold tracking-wider flex items-center gap-1.5 shadow-md">
